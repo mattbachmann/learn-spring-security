@@ -24,29 +24,32 @@ public class LssSecurityConfig extends WebSecurityConfigurerAdapter {
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception { // @formatter:off 
         auth.
             inMemoryAuthentication().passwordEncoder(passwordEncoder()).
-            withUser("user").password(passwordEncoder().encode("pass")).
-            roles("USER");
+            withUser("coco").password(passwordEncoder().encode("C0c0")).roles("USER")
+            .and()
+            .withUser("admin").password(passwordEncoder().encode("Adm1n")).roles("ADMIN");
     } // @formatter:on
 
     @Override
     protected void configure(HttpSecurity http) throws Exception { // @formatter:off
         http
-        .authorizeRequests()
-                .anyRequest().authenticated()
-        
-        .and()
-        .formLogin().
+            .authorizeRequests()
+            .antMatchers("/delete/**").hasRole("ADMIN")
+            .anyRequest().authenticated()
+
+            .and()
+            .formLogin().
             loginPage("/login").permitAll().
             loginProcessingUrl("/doLogin")
-            
-        .and()
-        .csrf().disable()
+
+            .and()
+            .csrf().disable()
         ;
     } // @formatter:on
+
+
 
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
-
 }

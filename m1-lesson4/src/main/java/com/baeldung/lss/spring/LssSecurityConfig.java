@@ -22,10 +22,7 @@ public class LssSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception { // @formatter:off 
-        auth.
-            inMemoryAuthentication().passwordEncoder(passwordEncoder()).
-            withUser("user").password(passwordEncoder().encode("pass")).
-            roles("USER");
+        auth.inMemoryAuthentication().passwordEncoder(passwordEncoder()).withUser("coco").password(passwordEncoder().encode("C0c0")).roles("USER");
     } // @formatter:on
 
     @Override
@@ -33,8 +30,8 @@ public class LssSecurityConfig extends WebSecurityConfigurerAdapter {
         http
         .authorizeRequests()
                 .antMatchers("/delete/**").hasRole("ADMIN")
+                .antMatchers("/modify/**").hasAnyRole("USER", "ADMIN")
                 .anyRequest().authenticated()
-        
         .and()
         .formLogin()
         ;

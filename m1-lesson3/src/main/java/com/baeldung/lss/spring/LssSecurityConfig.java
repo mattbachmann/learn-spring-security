@@ -27,6 +27,8 @@ public class LssSecurityConfig extends WebSecurityConfigurerAdapter {
             roles("USER");
     } // @formatter:on
 
+
+
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();

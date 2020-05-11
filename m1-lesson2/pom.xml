@@ -1,8 +1,9 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <description>The &quot;Learn Spring Security&quot; Course
-Module  1 - Lesson 2</description>
+        Module 1 - Lesson 2
+    </description>
     <name>learn-spring-security</name>
 
     <groupId>com.baeldung.m1</groupId>
@@ -30,6 +31,10 @@ Module  1 - Lesson 2</description>
             <artifactId>spring-boot-starter-tomcat</artifactId>
         </dependency>
         <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+        <dependency>
             <groupId>org.apache.tomcat.embed</groupId>
             <artifactId>tomcat-embed-jasper</artifactId>
         </dependency>
@@ -41,7 +46,7 @@ Module  1 - Lesson 2</description>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
         </dependency>
-        
+
         <dependency>
             <groupId>nz.net.ultraq.thymeleaf</groupId>
             <artifactId>thymeleaf-layout-dialect</artifactId>
@@ -54,17 +59,17 @@ Module  1 - Lesson 2</description>
 
         <!-- security -->
 
-<!--         <dependency> -->
-<!--             <groupId>org.springframework.boot</groupId> -->
-<!--             <artifactId>spring-boot-starter-security</artifactId> -->
-<!--         </dependency> -->
+        <!--         <dependency> -->
+        <!--             <groupId>org.springframework.boot</groupId> -->
+        <!--             <artifactId>spring-boot-starter-security</artifactId> -->
+        <!--         </dependency> -->
 
         <!-- test scoped -->
-		<dependency>
-		    <groupId>org.springframework.boot</groupId>
-		    <artifactId>spring-boot-starter-test</artifactId>
-		    <scope>test</scope>
-		</dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
 
     </dependencies>
 
@@ -92,9 +97,9 @@ Module  1 - Lesson 2</description>
         <!-- non-dependencies -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.8</java.version>
-        
+
         <!-- maven plugins -->
-		<maven-surefire-plugin.version>2.19.1</maven-surefire-plugin.version>
+        <maven-surefire-plugin.version>2.19.1</maven-surefire-plugin.version>
 
     </properties>
 
