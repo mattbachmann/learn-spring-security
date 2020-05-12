@@ -38,7 +38,8 @@ public class RegistrationListener implements ApplicationListener<OnRegistrationC
         service.createVerificationTokenForUser(user, token);
 
         final SimpleMailMessage email = constructEmailMessage(event, user, token);
-        mailSender.send(email);
+        System.out.println(email);
+        mailSender.send(email); // no authentication exception
     }
 
     //
