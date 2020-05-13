@@ -131,6 +131,7 @@ class RegistrationController {
             userService.createPasswordResetTokenForUser(user, token);
             final String appUrl = "http://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath();
             final SimpleMailMessage email = constructResetTokenEmail(appUrl, token, user);
+            System.out.println(email);
             mailSender.send(email);
         }
 
