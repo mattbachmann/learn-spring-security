@@ -52,8 +52,8 @@ public class LssSecurityConfig extends WebSecurityConfigurerAdapter {
         .and()
         .rememberMe()   
         .tokenValiditySeconds(604800)
-        .key("lssAppKey")
-        //.useSecureCookie(true)
+        .key("lssAppKey")// secret key
+//        .useSecureCookie(true) // HTTPS only - only works with HTTPS
         .rememberMeCookieName("sticky-cookie")
         .rememberMeParameter("remember")        
         

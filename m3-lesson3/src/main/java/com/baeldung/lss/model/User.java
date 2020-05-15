@@ -27,7 +27,7 @@ public class User {
 
     @ValidPassword
     @NotEmpty(message = "Password is required.")
-    private String password;
+    private String pass;
 
     @Transient
     @NotEmpty(message = "Password confirmation is required.")
@@ -68,11 +68,11 @@ public class User {
     }
 
     public String getPassword() {
-        return password;
+        return pass;
     }
 
     public void setPassword(final String password) {
-        this.password = password;
+        this.pass = password;
     }
 
     public String getPasswordConfirmation() {
@@ -93,6 +93,6 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" + "id=" + id + '\'' + ", email='" + email + '\'' + ", password='" + password + '\'' + ", passwordConfirmation='" + passwordConfirmation + '\'' + ", created=" + created + ", enabled=" + enabled + '}';
+        return "User{" + "id=" + id + '\'' + ", email='" + email + '\'' + ", password='" + pass + '\'' + ", passwordConfirmation='" + passwordConfirmation + '\'' + ", created=" + created + ", enabled=" + enabled + '}';
     }
 }
