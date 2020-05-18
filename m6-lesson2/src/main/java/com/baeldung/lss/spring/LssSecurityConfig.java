@@ -15,6 +15,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 import com.baeldung.lss.model.User;
 import com.baeldung.lss.persistence.UserRepository;
+import org.springframework.security.crypto.password.StandardPasswordEncoder;
 
 @EnableWebSecurity
 @Configuration
@@ -72,6 +73,12 @@ public class LssSecurityConfig extends WebSecurityConfigurerAdapter {
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
+//        return new StandardPasswordEncoder();
     }
 
+//
+//    @Bean
+//    public PasswordEncoder encoder() {
+//        return new Md5PasswordEncoder();
+//    }
 }
