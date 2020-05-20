@@ -5,6 +5,7 @@ import javax.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.ProviderManager;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -45,15 +46,16 @@ public class LssSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        /*final DaoAuthenticationProvider daoAuthProvider = new DaoAuthenticationProvider();
-        daoAuthProvider.setUserDetailsService(userDetailsService);
-        auth.authenticationProvider(daoAuthProvider).authenticationProvider(customAuthenticationProvider);*/
+//        final DaoAuthenticationProvider daoAuthProvider = new DaoAuthenticationProvider();
+//        daoAuthProvider.setUserDetailsService(userDetailsService);
+////        auth.authenticationProvider(daoAuthProvider).authenticationProvider(customAuthenticationProvider);
+//        auth.authenticationProvider(customAuthenticationProvider).authenticationProvider(daoAuthProvider); // first preferred second fallback
 
         // auth.parentAuthenticationManager(new ProviderManager(Lists.newArrayList(customAuthenticationProvider)));
 
         ProviderManager authenticationManager = new ProviderManager(Lists.newArrayList(customAuthenticationProvider));
         authenticationManager.setEraseCredentialsAfterAuthentication(false);
-        auth.parentAuthenticationManager(authenticationManager);
+        auth.parentAuthenticationManager(authenticationManager); // parent is evaluated after children
         // auth.eraseCredentials(false).userDetailsService(userDetailsService);
     }
 

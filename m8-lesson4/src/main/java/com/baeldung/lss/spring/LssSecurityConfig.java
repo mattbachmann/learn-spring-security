@@ -1,6 +1,7 @@
 package com.baeldung.lss.spring;
 
 import javax.annotation.PostConstruct;
+import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
@@ -17,8 +18,8 @@ import com.baeldung.lss.persistence.UserRepository;
 @Configuration
 public class LssSecurityConfig extends WebSecurityConfigurerAdapter {
 
-    // @Autowired
-    // private DataSource dataSource;
+     @Autowired
+     private DataSource dataSource;
 
     @Autowired
     private UserRepository userRepository;
@@ -38,11 +39,12 @@ public class LssSecurityConfig extends WebSecurityConfigurerAdapter {
         //            withUser("test@email.com").password("pass").roles("USER").and().
         //            withUser("test2@email.com").password("pass2").roles("ADMIN");
 
-        //        auth.
-        //            jdbcAuthentication().dataSource(dataSource). // withDefaultSchema().
-        //            withUser("test@email.com").password("pass").roles("USER");
+                auth.
+                    jdbcAuthentication().dataSource(dataSource)
+//                    .withDefaultSchema(). // defaultSchema does not work with MySql: varchar_ignorecase syntax error!
+                    .withUser("test@email.com").password("pass").roles("USER");
 
-        auth.userDetailsService(userDetailsService);
+//        auth.userDetailsService(userDetailsService);
     }// @formatter:on
 
     @Override

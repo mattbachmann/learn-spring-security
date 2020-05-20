@@ -22,7 +22,7 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
             return null;
         }
 
-        if (doAuthenticationAgainstThirdPartySystem()) {
+        if (fakeAuthenticationAgainstThirdPartySystem()) {
             return new UsernamePasswordAuthenticationToken(name, password, new ArrayList<>());
         } else {
             throw new BadCredentialsException("Authentication against the third party system failed");
@@ -36,7 +36,7 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
 
     //
 
-    private boolean doAuthenticationAgainstThirdPartySystem() {
+    private boolean fakeAuthenticationAgainstThirdPartySystem() {
         return true;
     }
 
