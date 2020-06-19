@@ -41,7 +41,7 @@
 --
 
 -- MySQL Schema
-USE lss114;
+USE restwithspring_dev;
 
 DROP TABLE IF EXISTS possession;
 DROP TABLE IF EXISTS users;
